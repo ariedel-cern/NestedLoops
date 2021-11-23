@@ -2,7 +2,7 @@
 # File              : GridConfig.sh
 # Author            : Anton Riedel <anton.riedel@tum.de>
 # Date              : 25.08.2021
-# Last Modified Date: 29.09.2021
+# Last Modified Date: 23.11.2021
 # Last Modified By  : Anton Riedel <anton.riedel@tum.de>
 
 # example configuration for running a analysis on grid
@@ -71,14 +71,14 @@ export RUN_OVER_AOD="1"
 [ $RUN_OVER_AOD -ne 1 ] && echo "Run over ESD not supported yet" && return 1
 
 # when running locally specify data directory
-[ $RUN_OVER_DATA -eq 1 -a $RUN_OVER_AOD -eq 1 ] && export DataDir="/home/vagrant/data/2010/LHC10h/000137161/ESDs/pass2/AOD160"
-[ $RUN_OVER_DATA -eq 0 -a $RUN_OVER_AOD -eq 1 ] && export DataDir="/home/vagrant/sim/LHC10d4/120822/AOD056"
+[ $RUN_OVER_DATA -eq 1 -a $RUN_OVER_AOD -eq 1 ] && export DataDir="$HOME/data/2010/LHC10h/000137161/ESDs/pass2/AOD160"
+[ $RUN_OVER_DATA -eq 0 -a $RUN_OVER_AOD -eq 1 ] && export DataDir="$HOME/sim/LHC10d4/120822/AOD056"
 
 # configure centrality bins
 export CENTRALITY_BIN_EDGES=$(
     cat <<'EOF'
 0
-80
+5
 EOF
 )
 
